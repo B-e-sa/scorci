@@ -1,0 +1,33 @@
+.home-container {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0) -100%,
+      rgba(0, 0, 0, 0.45)
+    ),
+    url("./assets/paul-rubens-portrait.jpg");
+  background-size: 135rem;
+  background-position: center;
+  background-position-x: -1rem;
+  background-position-y: -25rem;
+}
+.home-container-post-title {
+  font-size: 1.5rem;
+}
+.home-container-title {
+  font-size: 6.5rem;
+  margin-bottom: 1.5rem;
+}
+.home-container-date {
+  font-size: 2rem;
+}
+.home-container-paragraph {
+  width: 12rem;
+  font-size: 1rem;
+}
