@@ -1,0 +1,26 @@
+@import '../styles/variables';
+
+$button-container-padding: 25px;
+
+.page-container {
+    margin-top: calc($header-size + 1px);
+    display: flex;
+    height: 100%;
+}
+
+.button-container {
+    height: calc(90% - $button-container-padding * 2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 13px;
+    padding-top: $button-container-padding;
+    padding-bottom: $button-container-padding;
+    padding-right: 25px;
+}
+
+.artist-container {
+    outline: 1px solid gray;
+    width: 420px;
+    height: 92.5vh;
+}
