@@ -17,18 +17,18 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body style={{ display: "flex", flexDirection: "column" }}>
         <Suspense fallback={<div>Loading...</div>}>
           <header className={styles["header-container"]}>
-            <div className={styles["header-menu-container"]}>
+            <div className={`${styles["header-menu-container"]} flex-center`}>
               <MenuIcon className={styles["header-menu-icon"]} />
             </div>
-            <div className={styles["header-title-container"]}>
-              <p className={`${arno.className} ${styles["header-title"]}`}>
+            <div className={`${styles["header-title-container"]} flex-center`}>
+              <span className={`${arno.className} ${styles["header-title"]}`}>
                 Scorci
-              </p>
+              </span>
             </div>
-            <nav className={styles["header-nav-container"]}>
+            <nav className={`${styles["header-nav-container"]} flex-center`}>
               <ul className={`${pxGrotesk.className} ${styles["header-nav-list"]}`}>
                 <li>Artists</li>
                 <span className={styles["header-nav-list-separator"]}>/</span>
@@ -36,7 +36,7 @@ export default async function RootLayout({
               </ul>
             </nav>
           </header>
-          <main>{children}</main>
+          <main className={`${styles["main-container"]}`}>{children}</main>
         </Suspense>
       </body>
     </html>

@@ -1,26 +1,30 @@
+@import './styles/variables';
+@import './styles/color-variables';
+
 .header-container {
   position: absolute;
   display: flex;
+  align-self: center;
   align-items: center;
-  border-bottom: 1px solid white;
-  margin-inline: 35px;
-  margin-top: 5px;
+  justify-content: center;
+  border-bottom: $general-border-width solid $border-color;
   color: white;
+  width: 98%;
 }
 .header-menu-container {
   width: 25vw;
+  height: $header-size;
 }
 .header-menu-icon {
   width: 30px;
   height: 30px;
 }
 .header-title-container {
-    width: 41vw;
+  width: 41vw;
 }
 .header-title {
   font-size: 1.3rem;
 }
-
 .header-nav-container {
     width: 34vw;
 }
@@ -31,4 +35,7 @@
 .header-nav-list-separator{
     margin-inline: 5px;
     font-size: 1.3rem;
+}
+.main-container {
+  height: $main-size;
 }
