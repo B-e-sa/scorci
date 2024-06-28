@@ -1,0 +1,23 @@
+@import '../../styles/variables';
+@import '../../styles/color-variables';
+
+.artists-scroller {
+    border: $general-border-width solid $border-color;
+    min-width: 420px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.artists-scroller:nth-child(n + 1)  {
+    margin-left: -$general-border-width;
+}
+
+.country {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky; 
+    bottom: 0;
+    background-color: $background-color;
+    height: calc(10% - 2px)
+}
