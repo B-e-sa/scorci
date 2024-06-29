@@ -18,6 +18,8 @@
     align-items: center;
     position: sticky; 
     bottom: 0;
+    width: 98%;
+    margin-inline: $general-border-width;
     background-color: $background-color;
-    height: calc(10% - 2px)
+    height: calc(10% - $general-border-width * 2)
 }
