@@ -1,22 +1,22 @@
 @import '../../styles/variables';
-@import '../../styles/color-variables';
+@import '../../styles/colors';
 
 .artists-scroller {
-    border: $general-border-width solid $border-color;
     min-width: 420px;
     overflow-y: scroll;
     scrollbar-width: none;
 }
 
-.artists-scroller:nth-child(n + 1)  {
+.artists-scroller:nth-child(n + 1) {
     margin-left: -$general-border-width;
+    border-left: $general-border-width solid $border-color;
 }
 
 .country {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: sticky; 
+    position: sticky;
     bottom: 0;
     width: 98%;
     margin-inline: $general-border-width;

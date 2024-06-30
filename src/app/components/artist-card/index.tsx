@@ -1,6 +1,6 @@
 "use client";
 
-import { Artist } from "@/app/data/data";
+import { Artist } from "@/app/data";
 import getYear from "@/app/data/utils/date/getYear";
 import getNumberOfArtworks from "@/app/data/utils/getNumberOfArtworks";
 import { cinzel } from "@/app/fonts";
