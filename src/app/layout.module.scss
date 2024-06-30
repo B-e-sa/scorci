@@ -1,5 +1,5 @@
 @import './styles/variables';
-@import './styles/color-variables';
+@import './styles/colors';
 
 .header-container {
   position: absolute;
@@ -8,7 +8,6 @@
   align-items: center;
   justify-content: center;
   border-bottom: $general-border-width solid $border-color;
-  color: white;
   width: 98%;
 }
 .header-menu-container {
