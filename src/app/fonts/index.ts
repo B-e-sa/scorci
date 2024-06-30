@@ -5,3 +5,4 @@ export const arnoDisplay = localFont({ src: "./Arno-Display.otf" });
 export const ogg = localFont({ src: "./Ogg-Regular.ttf" });
 export const pxGrotesk = localFont({ src: "./Px-Grotesk-Regular.ttf" });
 export const cinzel = localFont({ src: "./Cinzel.ttf" });
+export const roxBorough = localFont({ src: "./Rox-Borough.ttf" });
