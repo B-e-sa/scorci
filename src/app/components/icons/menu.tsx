@@ -10,7 +10,7 @@ export default function MenuIcon(props?: ComponentProps<"svg">) {
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      stroke="#ffffff"
+      stroke="#CFC8B7"
     >
       <g id="SVGRepo_bgCarrier" strokeWidth="0" />
 
@@ -27,7 +27,7 @@ export default function MenuIcon(props?: ComponentProps<"svg">) {
           <path
             id="Vector"
             d="M3 15H21M3 9H21"
-            stroke="#ffffff"
+            stroke="#CFC8B7"
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
