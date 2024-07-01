@@ -1,11 +1,11 @@
+@import "../../styles/variables";
+
 .button {
-    padding-top: 10;
+    padding-top: 5px;
+    padding-bottom: 5px;
     display: flex;
     justify-content: center;
-    padding-bottom: 10;
     width: 80px;
-    border-radius: 50;
-    border-width: 2;
-    border-style: solid;
-    border-color: #282727;
+    border-radius: 20px;
+    border: $border-preset;
 }

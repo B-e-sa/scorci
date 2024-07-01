@@ -9,7 +9,7 @@
 
 .artists-scroller:nth-child(n + 1) {
     margin-left: -$general-border-width;
-    border-left: $general-border-width solid $border-color;
+    border-left: $border-preset;
 }
 
 .country {
