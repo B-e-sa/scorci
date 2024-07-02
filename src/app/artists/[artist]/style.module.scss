@@ -1,20 +1,79 @@
 @import "../../styles/variables";
+@import "../../styles/colors";
+
+$additional-top-margin: 30px;
+$left-padding: 20px;
+$title-size: 24px;
 
 .info-grid {
-    margin-top: $header-size;
-    height: 100%;
+    margin-top: calc($header-size + $additional-top-margin);
+    height: calc(100% - $additional-top-margin);
     display: grid;
+    grid-template-areas:
+        "first mid third"
+        "second mid fourth";
     grid-template-columns: 25% 25% 50%;
     grid-template-rows: 50% 50%;
+    margin-inline: calc((100% - $header-width) / 2);
 }
 
-.info-grid {
-    display: grid;
-    grid-template-columns: 3;
-    grid-template-rows: 2;
+.first {
+    grid-area: first;
+}
 
-    div {
-        background-color: red;
-        border: 1px solid blue;
+.synopsis {
+    margin-left: $left-padding;
+    width: calc(100% - $left-padding);
+    display: flex;
+    justify-content: space-between;
+    grid-area: third;
+
+    >div {
+        overflow-y: scroll;
+
+        >p {
+            width: 280px;
+        }
+    }
+
+    >span {
+        font-size: $title-size;
+    }
+}
+
+.early-life {
+    padding-top: 20px;
+    margin-left: $left-padding;
+    grid-area: fourth;
+    border-top: $border-preset;
+
+    >span {
+        font-size: $title-size;
+    }
+}
+
+.name {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: $title-size;
+}
+
+.middle-column {
+    border-inline: $border-preset;
+    grid-area: mid;
+    padding-inline: 10px;
+}
+
+.quick-facts {
+    border-top: $border-preset;
+    grid-area: second;
+
+    p {
+        margin-top: 30px;
+
+        span {
+            display: block;
+            color: $secondary;
+        }
     }
 }
