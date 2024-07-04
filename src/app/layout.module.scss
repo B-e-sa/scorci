@@ -7,8 +7,8 @@
   align-self: center;
   align-items: center;
   justify-content: center;
-  border-bottom: $general-border-width solid $border-color;
-  width: 98%;
+  border-bottom: $border-preset;
+  width: $header-width;
 }
 .header-menu-container {
   width: 25vw;
@@ -35,6 +35,7 @@
     margin-inline: 5px;
     font-size: 1.3rem;
 }
+
 .main-container {
   height: $main-size;
 }

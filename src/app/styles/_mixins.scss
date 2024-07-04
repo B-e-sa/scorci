@@ -1,0 +1,12 @@
+@import "./colors";
+
+@mixin border-preset($direction) {
+    border-#{$direction}: $general-border-width solid $border-color;
+}
+
+@mixin absolute-content {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}

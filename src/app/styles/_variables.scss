@@ -1,4 +1,9 @@
+@import "./colors";
+
 $header-size: 7.5vh;
+$header-width: 98%;
 $main-size: 92.5vh;
 $button-width: 80px;
 $general-border-width: 2px;
+
+$border-preset: $general-border-width solid $border-color

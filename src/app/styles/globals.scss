@@ -12,8 +12,7 @@ body {
   height: 100vh;
   max-width: 100vw;
   max-height: 100vh;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  overflow: hidden;
   background-color: $background-color;
   color: $primary;
 }
@@ -23,7 +22,48 @@ ol {
   list-style: none;
 }
 
-.text-center { text-align: center }
+button {
+  background-color: transparent;
+  color: $primary;
+}
+
+a {
+  text-decoration: inherit;
+  color: inherit;
+  -webkit-user-drag: none;
+  user-select: none;
+  cursor: auto;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+::-webkit-scrollbar {
+  background: $background-color;
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $primary;
+}
+
+
+.color-secondary {
+  color: $secondary;
+}
+
+.color-primary {
+  color: $primary
+}
+
+.text-center {
+  text-align: center
+}
+
+.flex {
+  display: flex
+}
 
 .flex-center {
   display: flex;
@@ -31,7 +71,9 @@ ol {
   align-items: center;
 }
 
-.column { flex-direction: column }
+.column {
+  flex-direction: column
+}
 
 .text-3xl {
   font-size: 30px;
