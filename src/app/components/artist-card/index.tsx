@@ -8,6 +8,7 @@ import Image from "next/image";
 import style from "./style.module.scss"
 import { MouseEvent, useState } from "react";
 import Link from "next/link";
+import slugify from "@/app/utils/slugify";
 
 export default function ArtistCard(artist: Artist) {
     const [isOverPortrait, setIsOverPortrait] = useState(false);
@@ -16,7 +17,7 @@ export default function ArtistCard(artist: Artist) {
         diedIn,
         fullName,
         nickname,
-        wasBorIn,
+        borIn,
         portrait
     } = artist;
 
@@ -25,8 +26,8 @@ export default function ArtistCard(artist: Artist) {
     const handlePortraitOver = (e: MouseEvent<HTMLImageElement>) => {
         setIsOverPortrait(!isOverPortrait)
         isOverPortrait
-            ? e.currentTarget.style.scale = "1"
-            : e.currentTarget.style.scale = defaultPortraitScale
+            ? e.currentTarget.style.scale = defaultPortraitScale
+            : e.currentTarget.style.scale = "1"
     }
 
     const portraitEvents = {
@@ -35,7 +36,12 @@ export default function ArtistCard(artist: Artist) {
     }
 
     return (
-        <Link href={`/artists/${nickname.replace(" ", "-").toLowerCase()}`}>
+        <Link
+            href={
+                nickname
+                    ? `/artists/${slugify(nickname)}`
+                    : "/artists"
+            }>
             <div key={nickname} className={`flex-center column`}>
                 <span
                     style={{ marginBottom: 10, marginTop: 100 }}
@@ -46,7 +52,7 @@ export default function ArtistCard(artist: Artist) {
                 <div className={`${cinzel.className} secondary`} style={{ marginBottom: 100, fontWeight: 600 }}>
                     <span>{getYear(diedIn)}</span>
                     <span> - </span>
-                    <span>{getYear(wasBorIn)}</span>
+                    <span>{getYear(borIn)}</span>
                 </div>
                 {
                     portrait &&
@@ -67,7 +73,7 @@ export default function ArtistCard(artist: Artist) {
                                 alt=""
                                 src={portrait} />
                         </div>
-                        <span style={{ alignSelf: "start" }}>{getNumberOfArtworks(fullName)}</span>
+                        <span style={{ alignSelf: "start" }}>{getNumberOfArtworks(fullName) ?? "Unknown"}</span>
                     </div>
                 }
             </div>
