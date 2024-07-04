@@ -3,8 +3,8 @@ import style from "./style.module.scss"
 
 export default function Button({ children }: { children: ReactNode }) {
     return (
-        <div className={`${style["button"]}`}>
+        <button className={`${style["button"]}`}>
             {children}
-        </div>
+        </button>
     )
 }
