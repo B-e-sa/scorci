@@ -29,10 +29,11 @@ $title-size: 24px;
     grid-area: third;
 
     >div {
-        overflow-y: scroll;
+        overflow-y: auto;
 
         >p {
             width: 280px;
+            margin-right: 15px;
         }
     }
 
@@ -61,7 +62,19 @@ $title-size: 24px;
 .middle-column {
     border-inline: $border-preset;
     grid-area: mid;
+    scrollbar-width: none;
+    overflow-y: auto;
     padding-inline: 10px;
+    scroll-snap-type: y mandatory;
+
+    div {
+        height: calc(100% - $additional-top-margin);
+        scroll-snap-align: start;
+    }
+
+    div:nth-child(n + 2) {
+        margin-top: $additional-top-margin;
+    }
 }
 
 .quick-facts {
