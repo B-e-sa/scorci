@@ -1,14 +1,16 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
-import { usePathname } from "next/navigation";
-import style from "./style.module.scss"
-import { useEffect, useState } from "react";
-import data from "@/app/data"
-import type { Artist } from "@/app/data";
-import Image, { StaticImageData } from "next/image";
-import { arno, pxGrotesk } from "@/app/fonts";
 import Button from "@/app/components/button/button";
+import type { Artist } from "@/app/data";
+import data from "@/app/data";
+import { arno, pxGrotesk } from "@/app/fonts";
+import slugify from "@/app/utils/slugify";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import unslugify from "../../utils/unslugify";
+import style from "./style.module.scss";
 
 export default function Artist() {
     const pathname = usePathname();
@@ -29,22 +31,11 @@ export default function Artist() {
         return `${dateArray[dateArray.length - 1]}, ${dateArray[dateArray.length - 2]}`
     }
 
-    const unslugify = (slug: string) => {
-        return slug
-            .split(' ')
-            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-            .join(' ');
-    }
-
     useEffect(() => {
-        const regularNickname = pathname
-            .split("/")[2]
-            .replace("-", " ");
-
         const foundArtist = data.language.pt.find((artist) => (
-            artist.nickname === unslugify(regularNickname)
+            artist.nickname === unslugify(pathname.split("/")[2])
         ))
-        
+
         if (!foundArtist) return
 
         setFoundArtist(foundArtist);
@@ -99,18 +90,25 @@ export default function Artist() {
                                     <p>{name}</p>
                                     <p>{completedIn}</p>
                                 </div>
-                                <Image
-                                    alt=""
-                                    src={(image as StaticImageData).src}
-                                    width={500}
-                                    height={500}
-                                    style={{
-                                        width: "100%",
-                                        height: "45%",
-                                        minHeight: "45%",
-                                        objectFit: "cover"
-                                    }}
-                                />
+                                <Link
+                                    href={
+                                        name
+                                            ? `/artists/${pathname.split("/")[2]}/${slugify(name)}`
+                                            : unslugify(pathname.split("/")[2])
+                                    }
+                                    style={{ width: "100%", height: "45%" }}>
+                                    <Image
+                                        alt=""
+                                        src={(image as StaticImageData).src}
+                                        width={500}
+                                        height={500}
+                                        style={{
+                                            width: "100%",
+                                            height: "300px",
+                                            objectFit: "cover"
+                                        }}
+                                    />
+                                </Link>
                             </div>
                         )
                     })
@@ -125,6 +123,6 @@ export default function Artist() {
             <div className={`${style["early-life"]}`}>
                 <span>Começo de carreira</span>
             </div>
-        </div>
+        </div >
     )
 }

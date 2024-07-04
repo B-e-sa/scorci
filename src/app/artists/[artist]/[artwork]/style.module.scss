@@ -1,0 +1,66 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+
+$additional-top-margin: 30px;
+$margin-inline: 15px;
+
+.grid {
+    margin-left: calc((100% - $header-width) / 2);
+    margin-top: calc($header-size + $additional-top-margin);
+    height: calc(100% - $additional-top-margin);
+    display: grid;
+    grid-template-areas:
+        "first third fifth"
+        "second fourth fifth";
+    grid-template-columns: 25% 30% 45%;
+    grid-template-rows: 45% 55%;
+
+    .authors-file, .artist {
+        @include border-preset(right);
+        position: relative;
+    }
+
+    .authors-file {
+        grid-area: first;
+    }
+
+    .authors-file::after {
+        @include absolute-content;
+        @include border-preset(bottom);
+        left: -$additional-top-margin / 2;
+    }
+
+    .artist {
+        grid-area: second;
+    }
+
+    .artist, .description {
+        padding-top: $additional-top-margin;
+    }
+
+    div:nth-child(3), .description {
+        margin-inline: $margin-inline;
+    }
+
+    div:nth-child(3) {
+        @include border-preset(bottom);
+        grid-area: third;
+    }
+
+    .description {
+        grid-area: fourth;
+
+        p {
+            width: 150px;
+        }
+    }
+
+    div:nth-child(5) {
+        grid-area: fifth;
+        position: relative;
+    }
+}
+
+.image {
+    margin-top: -$additional-top-margin + $general-border-width;
+}
