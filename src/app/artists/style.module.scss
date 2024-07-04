@@ -1,5 +1,6 @@
 @import '../styles/variables';
 @import '../styles/colors';
+@import '../styles/mixins';
 
 $button-container-padding: 25px;
 $button-container-height: calc(100% - $button-container-padding * 2 - 65px);
@@ -25,31 +26,23 @@ $button-container-height: calc(100% - $button-container-padding * 2 - 65px);
 }
 
 .button-container-wrapper::after {
-    content: '';
-    position: absolute;
+    @include absolute-content;
     transform: translate(-50%, -50%);
     top: calc(50% + $general-border-width);
     left: calc(50% - $general-border-width + 1px);
-    width: 100%;
-    height: 100%;
-    border-right: $general-border-width solid $border-color;
 }
 
-
 .bottom-box {
+    @include border-preset(top);
     height: calc(100% - $button-container-height);
-    border-top: $general-border-width solid $border-color;
 }
 
 .bottom-box::after {
-    content: '';
-    position: absolute;
+    @include border-preset(right);
+    @include absolute-content;
     transform: translate(-50%, -50%);
     top: calc(50% + $general-border-width);
     left: calc(50% - $general-border-width + 1px);
-    width: 100%;
-    height: 100%;
-    border-right: $general-border-width solid $border-color;
 }
 
 .artists-container {
