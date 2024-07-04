@@ -18,7 +18,7 @@ export default function Home() {
       </div>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", position: "absolute", bottom: 30 }}>
         <div style={{ position: "relative", width: 35, height: 35, display: "flex", alignItems: "center", justifyContent: "center", transform: "rotate(90deg)", borderRadius: 100, backgroundColor: "white" }}>
-          <Arrow style={{ position: "relative", left: 1.4 }} />
+          <Arrow style={{ height: "100%", width: "100%", position: "relative", left: 1.4 }} />
         </div>
         <span style={{ marginTop: 10 }}>DISCOVER</span>
       </div>
