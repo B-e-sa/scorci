@@ -6,87 +6,84 @@ $left-padding: 20px;
 $title-size: 24px;
 
 .info-grid {
-    margin-top: calc($header-size + $additional-top-margin);
-    height: calc(100% - $additional-top-margin);
-    display: grid;
-    grid-template-areas:
-        "first mid third"
-        "second mid fourth";
-    grid-template-columns: 25% 25% 50%;
-    grid-template-rows: 50% 50%;
-    margin-inline: calc((100% - $header-width) / 2);
+  margin-top: calc($header-size + $additional-top-margin);
+  height: calc(100% - $additional-top-margin);
+  display: grid;
+  grid-template-areas:
+    "first mid third"
+    "second mid fourth";
+  grid-template-columns: 25% 25% 50%;
+  grid-template-rows: 50% 50%;
+  margin-inline: calc((100% - $header-width) / 2);
 }
 
 .first {
-    grid-area: first;
+  grid-area: first;
 }
 
 .synopsis {
-    margin-left: $left-padding;
-    width: calc(100% - $left-padding);
-    display: flex;
-    justify-content: space-between;
-    grid-area: third;
+  margin-left: $left-padding;
+  width: calc(100% - $left-padding);
+  display: flex;
+  justify-content: space-between;
+  grid-area: third;
 
-    >div {
-        overflow-y: auto;
+  > div {
+    overflow-y: auto;
 
-        >p {
-            width: 280px;
-            margin-right: 15px;
-        }
+    > p {
+      width: 280px;
+      margin-right: 15px;
     }
+  }
 
-    >span {
-        font-size: $title-size;
-    }
+  > span {
+    font-size: $title-size;
+  }
 }
 
 .early-life {
-    padding-top: 20px;
-    margin-left: $left-padding;
-    grid-area: fourth;
-    border-top: $border-preset;
+  padding-top: 20px;
+  margin-left: $left-padding;
+  grid-area: fourth;
+  border-top: $border-preset;
 
-    >span {
-        font-size: $title-size;
-    }
-}
-
-.name {
-    margin-top: 15px;
-    margin-bottom: 10px;
+  > span {
     font-size: $title-size;
+  }
 }
 
 .middle-column {
-    border-inline: $border-preset;
-    grid-area: mid;
-    scrollbar-width: none;
-    overflow-y: auto;
-    padding-inline: 10px;
-    scroll-snap-type: y mandatory;
+  border-inline: $border-preset;
+  grid-area: mid;
+  scrollbar-width: none;
+  overflow-y: auto;
+  padding-inline: 10px;
+  scroll-snap-type: y mandatory;
 
-    div {
-        height: calc(100% - $additional-top-margin);
-        scroll-snap-align: start;
-    }
+  div {
+    height: calc(100% - $additional-top-margin);
+    scroll-snap-align: start;
+  }
 
-    div:nth-child(n + 2) {
-        margin-top: $additional-top-margin;
-    }
+  div:nth-child(n + 2) {
+    margin-top: $additional-top-margin;
+  }
 }
 
 .quick-facts {
-    border-top: $border-preset;
-    grid-area: second;
+  border-top: $border-preset;
+  grid-area: second;
 
-    p {
-        margin-top: 30px;
+  p {
+    color: $secondary;
+    margin-top: 30px;
 
-        span {
-            display: block;
-            color: $secondary;
-        }
+    span {
+      display: block;
+      color: $primary;
+      font-family: pxGrotesk;
+      font-size: 13.5px;
     }
+  }
 }

@@ -48,6 +48,10 @@ a {
   background: $primary;
 }
 
+@font-face {
+  font-family: pxGrotesk;
+  src: url(../fonts/Px-Grotesk-Regular.ttf);
+}
 
 .color-secondary {
   color: $secondary;
