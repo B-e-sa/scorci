@@ -1,0 +1,34 @@
+@import "../../artists/[artist]/style.module.scss";
+
+.artwork-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100% - $additional-top-margin);
+  scroll-snap-align: start;
+
+  &:nth-child(n + 2) {
+    margin-top: calc(100% - $additional-top-margin);
+  }
+
+  &:last-of-type {
+    margin-bottom: $additional-top-margin;
+  }
+}
+
+@media (max-width: $medium) {
+  .artwork-container {
+    margin-top: 0 !important;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+
+    >div {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding-block: $left-padding;
+      padding-left: $left-padding;
+    }
+  }
+}
