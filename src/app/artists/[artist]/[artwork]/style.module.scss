@@ -1,5 +1,6 @@
 @import "../../../styles/variables";
 @import "../../../styles/mixins";
+@import "../../../styles/breakpoints";
 
 $additional-top-margin: 30px;
 $margin-inline: 15px;
@@ -9,9 +10,6 @@ $margin-inline: 15px;
   margin-top: calc($header-size + $additional-top-margin);
   height: calc(100% - $additional-top-margin);
   display: grid;
-  grid-template-areas:
-    "first third fifth"
-    "second fourth fifth";
   grid-template-columns: 25% 30% 45%;
   grid-template-rows: 45% 55%;
 
@@ -55,13 +53,32 @@ $margin-inline: 15px;
   .first-description {
     @include border-preset(bottom);
     grid-area: third;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: $margin-inline;
+
+    > div {
+      display: flex;
+      justify-content: space-between;
+
+      p:first-of-type {
+        font-size: 28px;
+        width: 140px;
+      }
+
+      button {
+        width: 100px;
+      }
+    }
   }
 
   .second-description {
     grid-area: fourth;
+    overflow-y: auto;
 
     p {
-      width: 150px;
+      width: 190px;
     }
   }
 }
@@ -70,4 +87,96 @@ $margin-inline: 15px;
   grid-area: fifth;
   position: relative;
   margin-top: -$additional-top-margin + $general-border-width;
+
+  .magnifier > img {
+    object-fit: cover;
+    position: absolute;
+  }
+
+  .desc-button {
+    top: $additional-top-margin;
+    position: absolute;
+    z-index: 999;
+    left: 15px;
+    background-color: $background-color;
+    width: 110px;
+  }
+}
+
+$row-size: 240px;
+@media (max-width: $sm) {
+  .grid {
+    margin-left: 0;
+    grid-template-areas:
+      "first second"
+      "fifth fifth"
+      "third fourth" !important;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: $row-size $row-size * 2 $row-size;
+    overflow-y: auto;
+  }
+
+  .image {
+    margin-top: 0px;
+  }
+
+  .first-description,
+  .authors-file {
+    padding-bottom: 0px !important;
+  }
+
+  .artist,
+  .authors-file {
+    margin-left: $margin-inline;
+  }
+
+  .authors-file {
+    padding-bottom: $margin-inline !important;
+    border-right: none !important;
+  }
+
+  .authors-file::after {
+    @include absolute-content;
+    @include border-preset(right);
+    border-bottom: none !important;
+    margin-top: -15px;
+    width: 100% !important;
+    left: 0px !important;
+  }
+
+  .artist {
+    padding-top: 0px !important;
+  }
+
+  .first-description,
+  .second-description {
+    padding-block: 15px !important;
+  }
+
+  .retract-btn {
+    display: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-areas:
+      "first second"
+      "fifth fifth"
+      "third third"
+      "fourth fourth" !important;
+
+      grid-template-rows: $row-size $row-size * 2 min-content min-content
+  }
+
+  .first-description {
+    flex-direction: row !important;
+    align-items: flex-end;
+  }
+
+  .second-description {
+    >p {
+      width: 100% !important;
+    }
+  }
 }

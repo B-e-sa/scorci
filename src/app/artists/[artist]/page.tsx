@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
-import Button from "@/app/components/button/button";
+import Button from "@/app/components/button";
 import type { Artist } from "@/app/data";
 import data from "@/app/data";
 import { arno, pxGrotesk } from "@/app/fonts";
@@ -67,7 +67,7 @@ export default function Artist() {
       <div className={`${style["middle-column"]}`}>
         {artworks && (
           <ArtoworkScroller
-            className={`${style["one-hundred-width"]}`}
+            className={`${style["artworks"]}`}
             artworks={artworks}
             pathname={pathname}
           />

@@ -1,7 +1,7 @@
 "use client";
 import { MutableRefObject, useRef } from "react";
 import ArtistsScroller from "../components/artists-scroller";
-import Button from "../components/button/button";
+import Button from "../components/button";
 import artistsByCountry from "../data/byCountry";
 import style from "./style.module.scss";
 import { useDraggable } from "react-use-draggable-scroll";

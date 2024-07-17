@@ -30,7 +30,7 @@ $title-size: 24px;
   justify-content: space-between;
   grid-area: third;
 
-  >span {
+  > span {
     margin-bottom: 15px;
   }
 
@@ -70,7 +70,7 @@ $title-size: 24px;
 }
 
 .info-container {
-    margin-top: 60px;
+  margin-top: 60px;
 }
 
 .quick-facts {
@@ -90,7 +90,7 @@ $title-size: 24px;
   }
 }
 
-@media (max-width: $medium) {
+@media (max-width: $md) {
   .info-grid {
     grid-template-areas:
       "first third fourth"
@@ -112,7 +112,7 @@ $title-size: 24px;
   .synopsis {
     margin-left: 0px;
     padding-left: $left-padding;
-    @include border-preset(left)
+    @include border-preset(left);
   }
 
   .middle-column {
@@ -125,7 +125,7 @@ $title-size: 24px;
   }
 }
 
-@media (max-width: $small) {
+@media (max-width: $sm) {
   .info-grid {
     display: flex;
     flex-direction: column;
@@ -133,15 +133,17 @@ $title-size: 24px;
   }
 
   .quick-facts {
-    display: flex;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    justify-items: center;
 
     p {
       margin-block: $additional-top-margin;
     }
   }
 
-  .synopsis, .early-life {
+  .synopsis,
+  .early-life {
     flex-direction: row;
     margin-top: $additional-top-margin;
     border: none;
@@ -162,7 +164,7 @@ $title-size: 24px;
     border-inline: none;
   }
 
-  .one-hundred-width {
+  .artworks {
     min-width: 100%;
   }
 
@@ -182,14 +184,14 @@ $title-size: 24px;
       display: flex;
       margin-block: $additional-top-margin;
 
-      >p {
+      > p {
         margin-left: $info-ml + 70px;
       }
 
       .artist {
         display: flex;
       }
-      
+
       .info {
         flex-direction: column;
         margin-left: $info-ml;
@@ -198,6 +200,35 @@ $title-size: 24px;
 
     a {
       align-self: normal;
+    }
+  }
+}
+
+@media (max-width: $xs) {
+  .quick-facts {
+    text-align: center;
+  }
+
+  .info {
+    max-width: 230px;
+  }
+
+  .synopsis,
+  .early-life {
+    flex-direction: column;
+
+    div {
+      p {
+        width: 290px !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .artworks {
+    > div {
+      padding-left: 5px !important;
     }
   }
 }
